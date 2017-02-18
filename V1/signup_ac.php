@@ -52,7 +52,7 @@ $tbl_name=temp_members_db;
 $confirm_code=md5(uniqid(rand()));
 
 // values sent from form
-//$uid=$_POST['uid'];
+$uid=$_POST['uid'];
 $email=$_POST['email'];
 $password=$_POST['password'];
 /*$country=$_POST['country'];
@@ -62,7 +62,7 @@ $dob=$_POST['demo1'];*/
 $encpass=md5($password);
 
 // Insert data into database
-$sql="INSERT INTO $tbl_name(confirm_code, uid, name, email, password, country, gender, dob)VALUES('$confirm_code', '1', '2', '$email', '$encpass', '2', '2', '2')";
+$sql="INSERT INTO $tbl_name(confirm_code, uid, name, email, password, country, gender, dob)VALUES('$confirm_code', '$uid', '2', '$email', '$encpass', '2', '2', '2')";
 $result=mysqli_query($link,	$sql);
 
 // if suceesfully inserted data into database, send confirmation link to email
